@@ -128,15 +128,7 @@ const gallerySlider = new Swiper('.gallery__slider', {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
-    breakpoints: {
-        320: {
-            slidesPerView: 1.3,
-            spaceBetween: 0,
-
-        },
-         
-         
-      },
+    
   
   });
 
