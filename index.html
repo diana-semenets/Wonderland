@@ -278,7 +278,7 @@
                                 </div>
                             </div>
                             <div class="assortment__item">
-                                <img src="img/assortment3.webp" alt="Wedding cakes">
+                                <img src="img/3.webp" alt="Wedding cakes">
                                 <div class="assortment__item-text">
                                     <p>Wedding cakes</p>
                                 </div>
@@ -592,14 +592,14 @@
                         <div class="contacts__img"><img src="img/contact.webp" alt="cake"></div>
                         <div class="contacts__content">
                             <h2 class="contacts__title title">MAKE your request and we will contact you</h2>
-                            <form action="#" class="form">
+                            <form  class="form" action="sendmail/sendmail.php" method="POST" enctype="multipart/form-data">
                                 <div class="form__input">
                                     <label for="name">Name *</label>
-                                    <input type="text" name="name" id="name">
+                                    <input required type="text" name="name" id="name">
                                 </div>
                                 <div class="form__input">
                                     <label for="tel">Phone number *</label>
-                                    <input type="tel" name="tel" id="tel">
+                                    <input required type="tel" name="tel" id="tel">
                                 </div>
                                 
                                 <div class="form__input">
@@ -684,8 +684,8 @@
                     </div>
                     <div class="footer__form">
                         <h4>Drop us your phone number, and we'll get in touch to sort out any queries you've got</h4>
-                        <form action="#">
-                            <input type="tel" name="tel" id="" placeholder="+44">
+                        <form class="form" action="sendmail/sendmail.php" method="POST" enctype="multipart/form-data">
+                            <input required type="tel" name="tel" id="" placeholder="+44">
                             <button type="submit" class="footer__btn btn">Send</button>
                         </form>
                     </div>
@@ -710,8 +710,7 @@
                         <li class="footer__item"><a href="#specialization" class="footer__link">Questions</a></li>													
                         <li class="footer__item"><a href="#service" class="footer__link">Reviews</a></li>							
                         <li class="footer__item"><a href="#brands" class="footer__link">Contact us</a></li>                        
-                    </ul>
-                                       
+                    </ul>                                      
                     
                 </div>
                 
@@ -725,9 +724,9 @@
                 <div data-close class="modal__close">&times;</div>
                     <h3 class="modal__title title">MAKE your request
                         and we will contact you</h3>
-                <form action="#" class="modal-form">                    
+                <form action="sendmail/sendmail.php" method="POST" enctype="multipart/form-data" class="modal-form form">                    
                     <input required placeholder="Name*"  name="name" type="text" class="modal__input">
-                    <input required placeholder="Phone number *" name="tel" type="tel" class="modal__input">
+                    <input required placeholder="Phone number*" name="tel" type="tel" class="modal__input">
                     <button class="btn modal__form-btn">Call me back</button>
                 </form>
             </div>
@@ -737,7 +736,7 @@
     <div class="modalsocial">
         <div class="modal__dialog">
             <div class="modal__content size-content">
-                <div data-close class="modal__close">&times;</div>
+                <div data-closesocial class="modal__close">&times;</div>
                     <h3 class="size__title">Cake Serving Chart - round</h3>
                     <ul class="size__list">
                         <li>4 inches (10cm) - serves 8 persons</li>
