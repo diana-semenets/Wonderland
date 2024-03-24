@@ -112,16 +112,15 @@ const gallerySlider = new Swiper('.gallery__slider', {
     // Optional parameters
     grabCursor: true,
     centeredSlides: true,
-    slidesPerView: 3.5,
+    slidesPerView: 3,
     loop: true,
     speed:800,
-    spaceBetween: 30,
+    spaceBetween: 0,
     observer: true,
     effect: "coverflow",
     coverflowEffect: {
         rotate: 0,
-        depth: 300,
-        
+        depth: 0,        
     },
   
     navigation: {
@@ -130,25 +129,21 @@ const gallerySlider = new Swiper('.gallery__slider', {
     },
     breakpoints: {
         320: {
-            slidesPerView: 1.18,
+            slidesPerView: 1.6,
             spaceBetween: 0,
         },
           370: {
-              slidesPerView: 1.23,
+              slidesPerView: 1.7,
               spaceBetween: 0,
           },
           420: {
-            slidesPerView: 1.5,
-            spaceBetween: 20,
-            coverflowEffect: {
-                rotate: 0,
-                depth: 100,
-                
-            },
+            slidesPerView: 2.15,
+            spaceBetween: 20, 
+                      
         },
           500: {
-            slidesPerView: 2,
-            spaceBetween: 30,
+            slidesPerView: 2.15,
+            spaceBetween: 20,
             scrollbar: {
                 el: ".swiper-scrollbar",
                 hide: false,
@@ -156,38 +151,40 @@ const gallerySlider = new Swiper('.gallery__slider', {
         },
           600: {
             slidesPerView: 2.27,
-            spaceBetween: 30,
+            spaceBetween: 20,
         },
           700: {
-            slidesPerView: 2.56,
-            spaceBetween: 30,
+            slidesPerView: 2.5,
+            spaceBetween: 20,
         },
           768: {
-              slidesPerView: 2.65,
-              spaceBetween: 30,
+              slidesPerView: 2.6,
+              spaceBetween: 20,
           },
           800: {
-            slidesPerView: 2.9,
+            slidesPerView: 2.8,
             spaceBetween: 20,
         },
         900: {
-            slidesPerView: 3.2,
-            spaceBetween: 30,
+            slidesPerView: 3,
+            spaceBetween: 20,
         },
           998: {
-              slidesPerView: 3.35,
-              spaceBetween: 30,
+              slidesPerView: 3,
+              spaceBetween: 20,
           },
+          1050: {
+            slidesPerView: 3.4,
+            spaceBetween: 30,
+        },
           1100: {
-            slidesPerView: 3.45,
+            slidesPerView: 3.5,
             spaceBetween: 30,
         },
           1500: {
             slidesPerView: 3.5,
             spaceBetween: 30,
-        },
-         
-         
+        },        
       },
   
   });
@@ -275,3 +272,64 @@ const modalSocials = document.querySelectorAll("[data-modalsocial]"),
     document.addEventListener("keydown", (e => {
         if (e.code === "Escape" && modalSocial.classList.contains("show")) closeModeSocial();
     }));
+
+
+
+
+    const form = document.querySelectorAll('form'),
+    inputs = document.querySelectorAll('input'),
+    phoneInputs = document.querySelectorAll('input[name="tel"]');
+
+phoneInputs.forEach(item => {
+  item.addEventListener('input', () => {
+      item.value = item.value.replace(/\D/, '');
+  });
+});
+
+const message = {
+  loading: 'Загрузка...',
+  success: showModal (),
+  failure: 'Что-то пошло не так...'
+};
+
+const postData = async (url, data) => {
+    document.querySelector('.status').textContent = message.loading;
+    let res = await fetch(url, {
+        method: "POST",
+        body: data
+    });
+
+    return await res.text();
+};
+
+const clearInputs = () => {
+    inputs.forEach(item => {
+        item.value = '';
+    });
+};
+
+form.forEach(item => {
+    item.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        let statusMessage = document.createElement('div');
+        statusMessage.classList.add('status');
+        item.appendChild(statusMessage);
+
+        const formData = new FormData(item);
+
+        postData('server.php', formData)
+            .then(res => {
+                console.log(res);
+                showModal();
+            })
+            .catch(() => 
+            statusMessage.textContent = message.failure)
+            .finally(() => {
+                clearInputs();
+                setTimeout(() => {
+                    statusMessage.remove();
+                }, 5000);
+            });
+    });
+});
