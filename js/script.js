@@ -112,23 +112,83 @@ const gallerySlider = new Swiper('.gallery__slider', {
     // Optional parameters
     grabCursor: true,
     centeredSlides: true,
-    slidesPerView: 3,
-    loop: false,
+    slidesPerView: 3.5,
+    loop: true,
     speed:800,
-    spaceBetween: 50,
+    spaceBetween: 30,
     observer: true,
     effect: "coverflow",
     coverflowEffect: {
         rotate: 0,
-        depth: 10,
-        slideShadows: false,
+        depth: 300,
+        
     },
   
     navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
     },
-    
+    breakpoints: {
+        320: {
+            slidesPerView: 1.18,
+            spaceBetween: 0,
+        },
+          370: {
+              slidesPerView: 1.23,
+              spaceBetween: 0,
+          },
+          420: {
+            slidesPerView: 1.5,
+            spaceBetween: 20,
+            coverflowEffect: {
+                rotate: 0,
+                depth: 100,
+                
+            },
+        },
+          500: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+            scrollbar: {
+                el: ".swiper-scrollbar",
+                hide: false,
+              },
+        },
+          600: {
+            slidesPerView: 2.27,
+            spaceBetween: 30,
+        },
+          700: {
+            slidesPerView: 2.56,
+            spaceBetween: 30,
+        },
+          768: {
+              slidesPerView: 2.65,
+              spaceBetween: 30,
+          },
+          800: {
+            slidesPerView: 2.9,
+            spaceBetween: 20,
+        },
+        900: {
+            slidesPerView: 3.2,
+            spaceBetween: 30,
+        },
+          998: {
+              slidesPerView: 3.35,
+              spaceBetween: 30,
+          },
+          1100: {
+            slidesPerView: 3.45,
+            spaceBetween: 30,
+        },
+          1500: {
+            slidesPerView: 3.5,
+            spaceBetween: 30,
+        },
+         
+         
+      },
   
   });
 
