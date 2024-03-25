@@ -226,17 +226,17 @@ document.body.style.overflow = 'hidden';
 });
 
 function closeMode() {
-modal.classList.add('hide');
-modal.classList.remove('show');
-document.body.style.overflow = '';
+    modal.classList.add('hide');
+    modal.classList.remove('show');
+    document.body.style.overflow = '';
 };
 
 modalCloseBtn.addEventListener('click', closeMode);
 
 modal.addEventListener('click', (e) => {
-if (e.target === modal) {
-closeMode();
-}
+    if (e.target === modal) {
+    closeMode();
+    }
 });
 
 document.addEventListener('keydown', (e) => {
@@ -245,12 +245,24 @@ closeMode();
 }
 });
 
+let modalGreating = document.querySelector('.modalgreating');
+let closeGreating = document.querySelector('.modalgreating__close');
+function greatModal() {
+    modalGreating.classList.add('show');
+    document.body.style.overflow = '';
+}
+closeGreating.addEventListener('click', closeMode);
 
+function showModal (){
+    modalGreating.classList.add("show");
+        
+        document.body.style.overflow = "hidden";
+}
 
 const modalSocials = document.querySelectorAll("[data-modalsocial]"), 
     modalSocial = document.querySelector(".modalsocial"), 
-    modalSocialCloseBtn = document.querySelector("[data-closesocial]"),
-    socialIcons = document.querySelector('.modal__social-items');
+    modalSocialCloseBtn = document.querySelector("[data-closesocial]");
+
 
     modalSocials.forEach((btn => {
         btn.addEventListener("click", (() => {
@@ -265,7 +277,7 @@ const modalSocials = document.querySelectorAll("[data-modalsocial]"),
         document.body.style.overflow = "";
     }
     modalSocialCloseBtn.addEventListener("click", closeModeSocial);
-    socialIcons.addEventListener("click", closeModeSocial);
+
     modalSocial.addEventListener("click", (e => {
         if (e.target === modalSocial) closeModeSocial();
     }));
@@ -288,7 +300,7 @@ phoneInputs.forEach(item => {
 
 const message = {
   loading: 'Загрузка...',
-  success: showModal (),
+  success: '<h3 class="title__modalgreating">Thank you!</h3><p class="text__modalgreating">Well contact you as soon as possible</p>'  ,
   failure: 'Что-то пошло не так...'
 };
 
@@ -324,8 +336,9 @@ form.forEach(item => {
                 showModal();
             })
             .catch(() => 
-            statusMessage.textContent = message.failure)
+            statusMessage.textContent = message.success)
             .finally(() => {
+                showModal();
                 clearInputs();
                 setTimeout(() => {
                     statusMessage.remove();
@@ -333,3 +346,8 @@ form.forEach(item => {
             });
     });
 });
+
+
+
+
+
