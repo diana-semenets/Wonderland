@@ -129,16 +129,16 @@ const gallerySlider = new Swiper('.gallery__slider', {
     },
     breakpoints: {
         320: {
-            slidesPerView:/* 1.8 */ 1.05,
-            spaceBetween: 0,
+            slidesPerView:/* 1.8 */ 1.15,
+            spaceBetween: 20,
         },
           370: {
-              slidesPerView:/* 1.8*/ 1.12,
-              spaceBetween: 0,
+              slidesPerView:/* 1.8*/ 1.15,
+              spaceBetween: 20,
           },
           385: {
             slidesPerView:/* 1.8*/ 1.15,
-            spaceBetween: 0,
+            spaceBetween: 20,
         },
           420: {
             slidesPerView:/* 1.8*/ 1.2,
