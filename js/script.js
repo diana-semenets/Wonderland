@@ -129,17 +129,17 @@ const gallerySlider = new Swiper('.gallery__slider', {
     },
     breakpoints: {
         320: {
-            slidesPerView: 1.6,
+            slidesPerView: 1.8,
             spaceBetween: 0,
         },
           370: {
-              slidesPerView: 1.7,
+              slidesPerView: 1.8,
               spaceBetween: 0,
           },
           420: {
-            slidesPerView: 2.15,
+            slidesPerView: 1.8,
             spaceBetween: 20, 
-                      
+            effect: "false",          
         },
           500: {
             slidesPerView: 2.15,
@@ -336,6 +336,21 @@ form.forEach(item => {
 });
 
 
+const faqContainer = document.querySelector('.faq__container');
+const faqBtn = document.querySelector('.faq__btn');
+
+faqBtn.addEventListener("click", (() => {
+    faqContainer.classList.toggle("more");
+    faqBtn.classList.toggle("more");
+}));
+
+const aboutContainer = document.querySelector('.about__container');
+const aboutBtn = document.querySelector('.about__btn');
+
+aboutBtn.addEventListener("click", (() => {
+    aboutContainer.classList.toggle("more");
+    aboutBtn.classList.toggle("more");
+}));
 
 
 
