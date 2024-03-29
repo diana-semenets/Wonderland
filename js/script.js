@@ -37,6 +37,17 @@
         }
     });
 
+    let contactLink = document.querySelector('.menu__list');
+    
+    contactLink.addEventListener("click", function () {
+        if (menu.classList.contains("active")) {
+            menu.classList.remove("active");
+            menuBtn.classList.remove("active");
+            document.body.style.overflow = "";
+        }    
+        });
+
+
 let placeBtn = document.querySelector(".header__place-text");
 let place = document.querySelector('.header__place-list');
 placeBtn.addEventListener("click", (function() {
@@ -357,4 +368,13 @@ aboutBtn.addEventListener("click", (() => {
 }));
 
 
+function loadStyle(href) {
+    let link = document.createElement('link');
+    let cssSwiper = document.createElement('link');
+    link.rel = 'stylesheet';
+    cssSwiper.rel = 'stylesheet'
+    link.href = href;
+    document.body.appendChild(link);
+}
+loadStyle('css/style.css');
 
