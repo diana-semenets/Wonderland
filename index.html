@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/logo.png">
-    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+ <!----   <link rel="stylesheet" href="css/swiper-bundle.min.css"> -->
     <link rel="stylesheet" href="css/critical.css">
     <script src="js/swiper-bundle.min.js" defer></script>
     
@@ -829,12 +829,16 @@
 		
 	</div>
 
+
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
     <script>
         function loadStyle(href) {
             let link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = href;
-        document.body.appendChild(link);
+            let cssSwiper = document.createElement('link');
+            link.rel = 'stylesheet';
+            cssSwiper.rel = 'stylesheet'
+            link.href = href;
+            document.body.appendChild(link);
         }
         loadStyle('css/style.css');
        
