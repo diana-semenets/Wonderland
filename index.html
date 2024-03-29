@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="de-DE">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="img/logo.png">
     <link rel="stylesheet" href="css/swiper-bundle.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/critical.css">
+    <script src="js/swiper-bundle.min.js" defer></script>
+    
+    <script src="js/script.js" defer></script>
     <title>Wonderland</title>
 	<meta name="description" content="bespoke cakes and desserts for your celebration: wedding cakes, birthday cakes, cakes for any occasion are available to order">	
 	<meta name="keywords" content="Wonderland bakehouse cake maker in Ipswich" />
@@ -80,7 +83,6 @@
                             <picture>
                                 <source media="(max-width: 440px)" srcset="img/main-mobil.webp" />
                                 <img class="bg__img-img" src="img/main-back.webp" alt="cake maker in Ipswich">
-                        <!----    <img class="bg__img-img" src="img/main-mobil.webp" alt="cake maker in Ipswich"> -->
                             </picture>
                             
                         </div>                        
@@ -798,15 +800,6 @@
         </div>        
     </div>
 
- <!------   <div class="modalgreating">
-        <div class="modal__dialog">
-            <div class="modal__content">
-                <div data-close class="modalgreating__close">&times;</div>
-                    <h3 class="title__modalgreating">Thank you!</h3>
-                    <p class="text__modalgreating">We'll contact you as soon as possible</p>
-            </div>
-        </div>        
-    </div>  ---->
 
     <div class="modalsocial">
         <div class="modal__dialog">
@@ -836,7 +829,17 @@
 		
 	</div>
 
-    <script src="js/swiper-bundle.min.js"></script>
-    <script src="js/script.js"></script>
+    <script>
+        function loadStyle(href) {
+            let link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = href;
+        document.body.appendChild(link);
+        }
+        loadStyle('css/style.css');
+       
+    </script>
+    
+    
 </body>
 </html>
