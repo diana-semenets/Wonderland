@@ -103,7 +103,13 @@
                                     I offer bespoke cakes and desserts for your celebration: wedding cakes, birthday cakes, cakes for any occasion are available to order.                                   
                                 </p>
                             </div>
-                            <div class="bg__back"><img src="img/back-bg.webp" alt="back"></div>
+                            <div class="bg__back">
+                                <picture>
+                                    <source media="(max-width: 440px)" srcset="img/back-bg-mobil.webp" />
+                                    <img src="img/back-bg.webp" alt="back">
+                                </picture>
+                                
+                            </div>
                         </div>
                         
                     </div>
@@ -830,7 +836,7 @@
 
     <script src="js/swiper-bundle.min.js" defer></script>
     
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
     
 </body>
 </html>
